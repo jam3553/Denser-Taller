@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> 
+    <script src="plot.js"></script>
+    <script src="output.js"></script>
+    <script src="blocks.js"></script>
+    <script src="buildings.js"></script>
+    <script src="sketch.js"></script>
+    <script src="my_source.js"></script>
+  </head>
+  <body>
+    <div style="width: 100%; background:lightgrey; float: left;">
+    <div id="sketch-holder" style="float:left;">
+        <!-- Our sketch will go here! -->
+    <script>
+    document.getElementById("sketch_holder").innerHTML = 5 + 6;
+    </script>
+    </div>
+      <div id="status" style="width:400px; height:500px; text-align:left;background: lightgrey; float:left; padding: 10px; margin-left: 10px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
+      </div>
+       <div style="width:250px; height:300px; text-align:left; float: left; padding: 10px; margin-left: 10px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
+        <table width= "100%">
+        <tr>
+        <td>Number of People:</td>
+        <td><input id="numberPeople" type="number" value="20000" style="float: left; width: 130px; margin : 5px; padding : 5px;"></td>
+        <td></td>
+        </tr>
+        <tr>
+          <td>Iterations per Criteria (x):</td>
+        <td><input id="iterations" value="10" type="number" style="float: left; width: 130px; margin : 5px; padding : 5px;"></td>
+        <td><input type="button" name="Initate" id="saveWLCData" value="Initiate" style="float:left; margin: 10px 5px; padding: 5px;" onclick="my_sum(1, 2)"/></td>
+        </tr>
+        </tr>
+        <tr>
+          <td>Total iter. =x^3</td><td></td><td></td>
+        </tr>
+        <tr>
+          <td>Save each Model?</td>
+          <td><input id="saveEachModel" type="checkbox" name="saveEachModel" value="saveEachModel" style=" width:20px; height: 20px;" checked> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td width= "60%"><label for="greenPerCapita" style="padding:5px; margin:5px; float: left;">Green area:</label></td>
+          <td><input id="greenPerCapita" type="range" min="0" max="60" step="1" value='10' style="float: left;" onchange="change_greenPP(this.value);"></td>
+          <td><label id="greenPerCapitaValue" style="padding:5px; margin:5px; float: left;"></label></td>
+        </tr>
+        <tr>
+          <td><label for="heightFactor" style="padding:5px; margin-top:10px; float: left;">Height factor:</label></td>
+          <td><input id="heightFactor" type="range" min="0" value="0.5" max="1" step="0.01" style="float: left;" onchange="change_heightFactor(this.value);"></td>
+          <td><label id="heightFactorValue" style="padding:5px; margin:5px; float: left;">0.5</label></td>
+        </tr>
+        <tr> 
+          <td><label for="skewedFactor" style="padding:5px; margin-top:10px; float: left;">Plot size factor:</label></td>
+          <td><input id="skewedFactor" type="range" min="0" value="0.3" max="1" step="0.1" style="float: left;" onchange="change_Skewed(this.value);"></td>
+          <td><label id="skewedFactorValue" style="padding:5px; margin:5px; float: left;">0.3</label></td>
+        </tr>
+        <tr> 
+          <td><input type="button" name="Save Data" id="saveDataButton" value="Save Data" style="float:left; margin: 10px 30px; padding: 5px;" onclick="saveData()"/></td>
+          <td><input type="button" name="Regenerate" id="regenerate" value="Regenerate" style="float:left; margin: 10px; padding: 5px;" onclick="regenerate()"/> </td>
+          <td></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script>
+      function change_Skewed(val) {
+        document.getElementById('skewedFactorValue').innerHTML = val;
+      }
+      function change_stddev(val){
+        document.getElementById('stddevValue').innerHTML = val;
+      }
+      
+  </script>
+</html>
