@@ -307,7 +307,9 @@ async function generateModel(iterations) {
 						+ WLC[0]/1000000000 + ","+ WLC[1]/1000000000 +","+ WLC[2]/1000000000 +","+ WLC[3]/1000000000 +","+ WLC[4]/1000000000 + ","
 						+ getQuantity(1).toString() + "," + getQuantity(2).toString() + "," + getQuantity(3).toString() + ","
 						+ getQuantity(4).toString() + "," + getQuantity(5).toString() + "," + "\n";
-				  //saveData();
+				  saveData();
+                  console.log("line 311 sketch.js - savedData?")
+
 				}).catch((err) => {
 					console.error(err)
 				})
@@ -316,6 +318,7 @@ async function generateModel(iterations) {
 			}
 		}
 	}
+    console.log("line 319 sketch.js")
 		return new Promise((resolve, reject) => {
 			if(csvContent2)
 				resolve(csvContent2);
