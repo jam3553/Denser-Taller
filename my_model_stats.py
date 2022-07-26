@@ -37,7 +37,7 @@ def get_stats(model_path):
     print(WLC_MtCO2e)
     print(ec_data)
     print(stats)
-    #stats.to_csv(model_path[:-4] + "_stats.csv")
+    stats.to_csv(model_path[:-4] + "_stats.csv")
 
 def combine_stats(file_paths):
     stats = {'NRHR_areas': [], 'RHR_areas': [], 'NRLR_areas': [], 'RLR_areas': [], 
